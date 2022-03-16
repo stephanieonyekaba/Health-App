@@ -2,24 +2,26 @@
 {% block content %}
 <div>
     <h2 class="display-6">My meds</h2>
-    lll
+    <!-- BUTTON TO CREATE A NEW MED -->
+    <a href="/meds/{{ med.id }}/new"button type="button" class="btn btn-primary">Add new </button></a>
     <div class="row">
-        {% for example in examples %}
+        
+        {% for med in meds %}
         <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ example.name }}</h5>
+            <h5 class="card-header">{{ med.name }}</h5>
             <div class="card-body">
                 <h5 class="card-title">
-                    Taken?: {{ example.taken }}
+                    Taken?: {{ med.taken }}
                 </h5>
                 <p class="card-text">
                     
-                    Notes: {{ example.notes }}
+                    Notes: {{ med.notes }}
                 </p>
                 <p class="card-text">
-                    Dose: {{ example.dose }}
+                    Dose: {{ med.dose }}
                 </p>
-                <a href="/examples/{{ example.id }}" class="btn btn-info">
-                    View {{ example.name }}
+                <a href="/meds/{{ med.id }}" class="btn btn-info">
+                    View {{ med.name }}
                 </a>
             </div>
         </div>

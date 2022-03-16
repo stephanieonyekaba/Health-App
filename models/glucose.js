@@ -7,11 +7,11 @@ const User = require('./user')
 // destructure the schema and model constructors from mongoose
 const { Schema, model } = mongoose
 
-const exampleSchema = new Schema(
+const glucoseSchema = new Schema(
 	{
-		name: { type: String, required: true },
-        dose: { type: Number, required: true },
-		taken: { type: Boolean, required: true },
+		date: { type: String, required: true },
+        value: { type: Number, required: true },
+		target: { type: Number, required: true },
 		notes: { type: String, required: true },
 		owner: {
 			type: Schema.Types.ObjectID,
@@ -21,9 +21,9 @@ const exampleSchema = new Schema(
 	{ timestamps: true }
 )
 
-const Example = model('Example', exampleSchema)
+const Glucose = model('Glucose', glucoseSchema)
 
 /////////////////////////////////
 // Export our Model
 /////////////////////////////////
-module.exports = Example
+module.exports = Glucose
