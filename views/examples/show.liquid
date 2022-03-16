@@ -3,15 +3,15 @@
 <div class="container-md">
     <article>
         <h2>
-            {{ example.title }} -
-            {% if example.ready %}
-            Ready
+            {{ example.name }} -
+            {% if example.taken %}
+            taken
             {% else %}
-            Not Ready
+            Not taken
             {%endif%}
         </h2>
-        <h3>Amount: {{ example.amount }}</h3>
-        <h6>Body: {{ example.body }}</h6>
+        <h3>Dose: {{ example.dose }}</h3>
+        <h6>Notes: {{ example.notes }}</h6>
         {% if example.owner == userId %}
         <div class="btn-group">
 

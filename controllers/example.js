@@ -58,7 +58,7 @@ router.get('/new', (req, res) => {
 
 // create -> POST route that actually calls the db and makes a new document
 router.post('/', (req, res) => {
-	req.body.ready = req.body.ready === 'on' ? true : false
+	req.body.taken = req.body.taken === 'on' ? true : false
 
 	req.body.owner = req.session.userId
 	Example.create(req.body)
@@ -87,7 +87,7 @@ router.get('/:id/edit', (req, res) => {
 // update route
 router.put('/:id', (req, res) => {
 	const exampleId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
+	req.body.taken = req.body.taken === 'on' ? true : false
 
 	Example.findByIdAndUpdate(exampleId, req.body, { new: true })
 		.then(example => {

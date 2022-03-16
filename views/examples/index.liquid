@@ -1,23 +1,25 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <h2 class="display-6">All Examples</h2>
+    <h2 class="display-6">My meds</h2>
+    lll
     <div class="row">
         {% for example in examples %}
         <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ example.title }}</h5>
+            <h5 class="card-header">{{ example.name }}</h5>
             <div class="card-body">
                 <h5 class="card-title">
-                    Ready?: {{ example.ready }}
+                    Taken?: {{ example.taken }}
                 </h5>
                 <p class="card-text">
-                    Body: {{ example.body }}
+                    
+                    Notes: {{ example.notes }}
                 </p>
                 <p class="card-text">
-                    Amount: {{ example.amount }}
+                    Dose: {{ example.dose }}
                 </p>
                 <a href="/examples/{{ example.id }}" class="btn btn-info">
-                    View {{ example.title }}
+                    View {{ example.name }}
                 </a>
             </div>
         </div>

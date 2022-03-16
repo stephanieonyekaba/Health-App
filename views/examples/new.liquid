@@ -3,35 +3,44 @@
 <div class="container-sm">
     <form action="/examples" method="POST">
         <fieldset>
-            <legend>Create New Example</legend>
-            <label class="form-label">Title: </label>
+            <legend>Add Medication</legend>
+            
+            <!-- DROP DOWN TO SELECT A MED -->
+            <label class="form-label">Select drug </label>
             <input 
                 type="text" 
-                name="title" 
-                placeholder="enter example title"
+                name="name" 
+                placeholder="choose a drug"
                 class="form-control"
             >
-            <label class="form-label">Body:</label>
+           
+            <!-- DOSAGE OF MED SELECTED -->
+            <label class="form-label">Dosage </label>
+            <input 
+                type="number"
+                name="dose" 
+                class="form-control"
+            >
+            
+            <!-- ADD NOTES TO DRUG -->
+            <label class="form-label">Notes </label>
             <input 
                 type="text" 
-                name="body" 
-                placeholder="enter example body" 
+                name="notes" 
+                placeholder="enter your notes here" 
                 class="form-control"
             >
-            <label class="form-label">Amount:</label>
-            <input 
-                type="number" 
-                name="amount" 
-                class="form-control"
-            >
-            <label class="form-label">Ready:</label>
+
+            <!-- CHECKBOX IF MED WAS TAKEN TODAY -->
+            <label class="form-label">Taken today?:</label>
             <input 
                 type="checkbox" 
-                name="ready" 
+                name="taken" 
                 class="form-check-input"
+        
             >
         </fieldset>
-        <input type="submit" value="Create New Example" class="btn btn-success">
+        <input type="submit" value="Add med" class="btn btn-success">
     </form>
 </div>
 {% endblock %}
