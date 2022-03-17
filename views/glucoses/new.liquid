@@ -1,0 +1,46 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm">
+    <form action="/glucose" method="POST">
+        <fieldset>
+            <legend>Add Medication</legend>
+            
+            <!-- DROP DOWN TO SELECT A GLUCOSE -->
+            <label class="form-label">Select drug </label>
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="choose a drug"
+                class="form-control"
+            >
+           
+            <!-- DOSAGE OF GLUCOSE SELECTED -->
+            <label class="form-label">Dosage </label>
+            <input 
+                type="number"
+                name="dose" 
+                class="form-control"
+            >
+            
+            <!-- ADD NOTES TO DRUG -->
+            <label class="form-label">Notes </label>
+            <input 
+                type="text" 
+                name="notes" 
+                placeholder="enter your notes here" 
+                class="form-control"
+            >
+
+            <!-- CHECKBOX IF GLUCOSE WAS ENTERED TODAY -->
+            <label class="form-label">Taken today?:</label>
+            <input 
+                type="checkbox" 
+                name="taken" 
+                class="form-check-input"
+        
+            >
+        </fieldset>
+        <input type="submit" value="Add med" class="btn btn-success">
+    </form>
+</div>
+{% endblock %}

@@ -3,7 +3,7 @@
 // Import Dependencies
 const express = require('express')
 //setting our model to a variable so we can use it in other parts of
-const Med = require('../models/med')
+const Glucose = require('../models/glucose')
 
 // Create router
 const router = express.Router()
@@ -26,25 +26,29 @@ router.use((req, res, next) => {
 
 // index ALL
 router.get('/', (req, res) => {
-	Med.find({})
-		.then(meds => {
+	Glucose.find({})
+		.then(glucoses => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			
-			res.render('meds/index', { meds, username, loggedIn })
+			res.render('glucoses/index', { glucoses, username, loggedIn })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
 
-// index that shows only the user's Meds
-router.get('/my-meds', (req, res) => {
+// index that shows only the user's Glucoses
+router.get('/my-glucoses', (req, res) => {
+	console.log("GET INDEX PAGE FOR MY GLUCOSES")
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
-	Med.find({ owner: userId })
-		.then(meds => {
-			res.render('meds/index', { meds, username, loggedIn })
+	console.log("THIS IS TYPE OF USER ID", typeof userId)
+	Glucose.find({ owner: userId })
+
+		.then(glucoses => {
+		
+			res.render('glucoses/index', { glucoses, username, loggedIn })
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -54,7 +58,7 @@ router.get('/my-meds', (req, res) => {
 // new route -> GET route that renders our page with the form
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
-	res.render('meds/new', { username, loggedIn })
+	res.render('glucoses/new', { username, loggedIn })
 })
 
 // create -> POST route that actually calls the db and makes a new document
@@ -62,10 +66,10 @@ router.post('/', (req, res) => {
 	req.body.taken = req.body.taken === 'on' ? true : false
 
 	req.body.owner = req.session.userId
-	Med.create(req.body)
-		.then(med => {
-			console.log('this was returned from create', med)
-			res.redirect('/meds')
+	Glucose.create(req.body)
+		.then(glucose => {
+			console.log('this was returned from create', glucose)
+			res.redirect('/my-glucoses')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -75,10 +79,10 @@ router.post('/', (req, res) => {
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
-	const medId = req.params.id
-	Med.findById(medId)
-		.then(med => {
-			res.render('meds/edit', { med })
+	const glucoseId = req.params.id
+	Glucose.findById(glucoseId)
+		.then(glucose => {
+			res.render('glucoses/edit', { glucose })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -87,12 +91,12 @@ router.get('/:id/edit', (req, res) => {
 
 // update route
 router.put('/:id', (req, res) => {
-	const exampleId = req.params.id
+	const glucoseId = req.params.id
 	req.body.taken = req.body.taken === 'on' ? true : false
 
-	Med.findByIdAndUpdate(medId, req.body, { new: true })
-		.then(med => {
-			res.redirect(`/meds/${med.id}`)
+	Glucose.findByIdAndUpdate(glucoseId, req.body, { new: true })
+		.then(glucose => {
+			res.redirect(`/glucoses/${glucose.id}`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -101,11 +105,11 @@ router.put('/:id', (req, res) => {
 
 // show route
 router.get('/:id', (req, res) => {
-	const medId = req.params.id
-	Med.findById(medId)
-		.then(med => {
+	const glucoseId = req.params.id
+	Glucose.findById(glucoseId)
+		.then(glucose => {
             const {username, loggedIn, userId} = req.session
-			res.render('meds/show', { med, username, loggedIn, userId })
+			res.render('glucoses/show', { glucose, username, loggedIn, userId })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -114,10 +118,10 @@ router.get('/:id', (req, res) => {
 
 // delete route
 router.delete('/:id', (req, res) => {
-	const medId = req.params.id
-	Med.findByIdAndRemove(medId)
-		.then(med => {
-			res.redirect('/meds')
+	const glucoseId = req.params.id
+	Glucose.findByIdAndRemove(glucoseId)
+		.then(glucose => {
+			res.redirect('/glucoses')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

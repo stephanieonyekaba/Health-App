@@ -1,18 +1,18 @@
 {% block content %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="/" class="navbar-brand">Examplr</a>
+        <a href="/" class="navbar-brand">Dashboard</a>
         {% if loggedIn %}
-        <a href="/meds/mine" class="nav-link text-light">Hello {{ username }} </a>
+        <div class="nav-link text-light">Hello {{ username }} </div>
         {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             {% if loggedIn %}
-                <a href="/meds" class="nav-link text-light">View All</a>
-                <a href="/meds/new" class="nav-link text-light">New</a>
-                <a href="/meds/mine" class="nav-link text-light">My Meds</a>
+                <a href="/dashboard" class="nav-link text-light">View All</a>
+                <a href="/med/my-meds" class="nav-link text-light">My Meds</a>
+                <a href="/glucose/my-glucoses" class="nav-link text-light">My Glucose</a>
                 <a href="/auth/logout" class="nav-link text-light">Log Out</a>
             {% else %}
                 <a href="/auth/signup" class="nav-link text-light">Sign Up</a>

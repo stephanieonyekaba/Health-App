@@ -1,0 +1,27 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-md">
+    <article>
+        <h2>
+            {{ glucose.name }} -
+            {% if glucose.taken %}
+            taken
+            {% else %}
+            Not taken
+            {%endif%}
+        </h2>
+        <h3>Dose: {{ glucose.dose }}</h3>
+        <h6>Notes: {{ glucose.notes }}</h6>
+        {% if glucose.owner == userId %}
+        <div class="btn-group">
+
+            <a href="/glucoses/{{ glucose.id }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/glucoses/{{ glucose.id }}?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </div>
+        {% endif %}
+    </article>
+</div>
+{% endblock %}
+

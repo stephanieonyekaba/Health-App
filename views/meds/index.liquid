@@ -3,7 +3,7 @@
 <div>
     <h2 class="display-6">My meds</h2>
     <!-- BUTTON TO CREATE A NEW MED -->
-    <a href="/meds/{{ med.id }}/new"button type="button" class="btn btn-primary">Add new </button></a>
+    <a href="/med/new"button type="button" class="btn btn-primary">Add new </button></a>
     <div class="row">
         
         {% for med in meds %}
@@ -20,7 +20,7 @@
                 <p class="card-text">
                     Dose: {{ med.dose }}
                 </p>
-                <a href="/meds/{{ med.id }}" class="btn btn-info">
+                <a href="/examples/{{ med.id }}" class="btn btn-info">
                     View {{ med.name }}
                 </a>
             </div>
