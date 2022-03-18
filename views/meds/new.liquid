@@ -1,9 +1,17 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/meds" method="POST">
+    <form action="/med" method="POST">
         <fieldset>
             <legend>Add Medication</legend>
+            <!-- DATE OF MED SELECTED -->
+            <label class="form-label">Date </label>
+            <input 
+                type="number"
+                name="date" 
+                class="form-control"
+            >
+          
             
             <!-- DROP DOWN TO SELECT A MED -->
             <label class="form-label">Select drug </label>
@@ -21,26 +29,28 @@
                 name="dose" 
                 class="form-control"
             >
-            
-            <!-- ADD NOTES TO DRUG -->
-            <label class="form-label">Notes </label>
-            <input 
-                type="text" 
-                name="notes" 
-                placeholder="enter your notes here" 
-                class="form-control"
-            >
 
-            <!-- CHECKBOX IF MED WAS TAKEN TODAY -->
-            <label class="form-label">Taken today?:</label>
-            <input 
-                type="checkbox" 
-                name="taken" 
-                class="form-check-input"
-        
-            >
+            
+             <!-- ADD NOTES TO DRUG -->
+             <label class="form-label">Notes </label>
+             <input 
+                 type="text" 
+                 name="notes" 
+                 placeholder="enter your notes here" 
+                 class="form-control"
+             >
+ 
+           
+            <!-- CHECKBOX IF MED IS PM -->
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" name="taken" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">PM med</label>
+              </div>
         </fieldset>
-        <input type="submit" value="Add med" class="btn btn-success">
+        <input type="submit" value="Add Reading" class="btn btn-primary">
+
     </form>
 </div>
 {% endblock %}
+
+

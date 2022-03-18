@@ -1,9 +1,10 @@
-43 lines (43 sloc)  1.35 KB
+
   
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/meds" method="POST">
+    <form action="/med/{{ med.id }}?_method=PUT" method="POST">
+    <!-- <form action="/meds" method="POST"> -->
         <fieldset>
             <legend>Edit Entry</legend>
             <label class="form-label">Drug: </label>

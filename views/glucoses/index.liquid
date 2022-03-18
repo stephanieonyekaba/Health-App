@@ -2,8 +2,9 @@
 {% block content %}
 <div>
     <h2 class="display-6">My Glucose Levels</h2>
+    <a href="/glucose/new" button type="button" class="btn btn-secondary btn-lg btn-block">Add New Reading</button></a>
     <!-- BUTTON TO CREATE A NEW GLUCOSE -->
-    <a href="/glucose/new" button type="button" class="btn btn-primary">Add new </button></a>
+
     <div class="row">
         
         {% for glucose in glucoses %}
@@ -20,7 +21,7 @@
                 <p class="card-text">
                     Dose: {{ glucose.dose }}
                 </p>
-                <a href="/glucoses/{{ glucose.id }}" class="btn btn-info">
+                <a href="/glucose/{{ glucose.id }}" class="btn btn-info">
                     View {{ glucose.name }}
                 </a>
             </div>

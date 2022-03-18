@@ -15,8 +15,8 @@
         {% if glucose.owner == userId %}
         <div class="btn-group">
 
-            <a href="/glucoses/{{ glucose.id }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/glucoses/{{ glucose.id }}?_method=DELETE" method="POST">
+            <a href="/glucose/{{ glucose.id }}/edit" class="btn btn-primary">Edit</a>
+            <form action="/glucose/{{ glucose.id }}?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>

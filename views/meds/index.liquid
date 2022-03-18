@@ -3,24 +3,29 @@
 <div>
     <h2 class="display-6">My meds</h2>
     <!-- BUTTON TO CREATE A NEW MED -->
-    <a href="/med/new"button type="button" class="btn btn-primary">Add new </button></a>
+
+
     <div class="row">
         
         {% for med in meds %}
         <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ med.name }}</h5>
+            <h5 class="card-header">{{ med.date }}</h5>
             <div class="card-body">
-                <h5 class="card-title">
-                    Taken?: {{ med.taken }}
-                </h5>
                 <p class="card-text">
+                    Name: {{ med.name }} 
+                </p>
+               
+                <p class="card-text">
+                    Dose: {{ med.dose }} mg
+                </p>
+                <!-- <p class="card-text">
                     
                     Notes: {{ med.notes }}
-                </p>
+                </p> -->
                 <p class="card-text">
-                    Dose: {{ med.dose }}
+                    PM drug: {{ med.taken }}
                 </p>
-                <a href="/examples/{{ med.id }}" class="btn btn-info">
+                <a href="/med/{{ med.id }}" class="btn btn-outline-primary">
                     View {{ med.name }}
                 </a>
             </div>
@@ -28,4 +33,6 @@
         {% endfor %}
     </div>
 </div>
+<a href="/med/new" button type="button" class="btn btn-secondary btn-lg btn-block">Add New Reading</button></a>
 {% endblock %}
+

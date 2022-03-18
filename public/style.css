@@ -1,3 +1,28 @@
-body {
-    background-color: red;
+html {
+    height: 100%;
 }
+
+body {
+    background-image: linear-gradient(rgba(52, 203, 223, 0.349), rgba(64, 108, 230, 0.596));
+}
+
+.card-text {
+    font-weight: bold;
+}
+
+.card {
+    margin: 20px;
+}
+
+.home {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+.homeContainer {
+    width: 600px;
+    height: 600px;
+    background-color: white;
+}
+

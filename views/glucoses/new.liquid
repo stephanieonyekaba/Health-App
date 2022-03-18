@@ -3,27 +3,35 @@
 <div class="container-sm">
     <form action="/glucose" method="POST">
         <fieldset>
-            <legend>Add Medication</legend>
+            <legend>Add Glucose reaading</legend>
             
-            <!-- DROP DOWN TO SELECT A GLUCOSE -->
-            <label class="form-label">Select drug </label>
+            <!-- CALENDER TO CHOOSE A DATE -->
+            <label class="form-label">Enter Date: </label>
             <input 
-                type="text" 
-                name="name" 
-                placeholder="choose a drug"
+                type="number" 
+                name="date" 
+                placeholder="choose a date"
                 class="form-control"
             >
            
-            <!-- DOSAGE OF GLUCOSE SELECTED -->
-            <label class="form-label">Dosage </label>
+            <!-- ADD VALUE -->
+            <label class="form-label">Value: </label>
             <input 
                 type="number"
-                name="dose" 
+                name="value" 
                 class="form-control"
             >
             
-            <!-- ADD NOTES TO DRUG -->
-            <label class="form-label">Notes </label>
+            <!-- ADD TARGET TO DRUG -->
+            <label class="form-label">Target: </label>
+            <input 
+                type="number" 
+                name="target" 
+                placeholder="enter your notes here" 
+                class="form-control"
+            >
+            <!-- ADD NOTES -->
+            <label class="form-label">Notes: </label>
             <input 
                 type="text" 
                 name="notes" 
@@ -31,16 +39,8 @@
                 class="form-control"
             >
 
-            <!-- CHECKBOX IF GLUCOSE WAS ENTERED TODAY -->
-            <label class="form-label">Taken today?:</label>
-            <input 
-                type="checkbox" 
-                name="taken" 
-                class="form-check-input"
-        
-            >
         </fieldset>
-        <input type="submit" value="Add med" class="btn btn-success">
+        <input type="submit" value="Add med" class="btn btn-primary">
     </form>
 </div>
 {% endblock %}

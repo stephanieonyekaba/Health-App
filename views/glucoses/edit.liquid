@@ -3,7 +3,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/glucoses" method="POST">
+    <form action="/glucose/{{ glucose.id }}?_method=PUT" method="POST">
         <fieldset>
             <legend>Edit Entry</legend>
             <label class="form-label">Drug: </label>

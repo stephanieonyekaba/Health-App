@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
 	Med.create(req.body)
 		.then(med => {
 			console.log('this was returned from create', med)
-			res.redirect('/meds')
+			res.redirect('med/my-meds')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -85,14 +85,16 @@ router.get('/:id/edit', (req, res) => {
 		})
 })
 
+
+
 // update route
 router.put('/:id', (req, res) => {
-	const exampleId = req.params.id
+	const medId = req.params.id
 	req.body.taken = req.body.taken === 'on' ? true : false
 
 	Med.findByIdAndUpdate(medId, req.body, { new: true })
 		.then(med => {
-			res.redirect(`/meds/${med.id}`)
+			res.redirect(`/med/my-meds`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -117,7 +119,7 @@ router.delete('/:id', (req, res) => {
 	const medId = req.params.id
 	Med.findByIdAndRemove(medId)
 		.then(med => {
-			res.redirect('/meds')
+			res.redirect('/med/my-meds')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

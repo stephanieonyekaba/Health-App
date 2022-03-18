@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
 	Glucose.create(req.body)
 		.then(glucose => {
 			console.log('this was returned from create', glucose)
-			res.redirect('/my-glucoses')
+			res.redirect('glucose/my-glucoses')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -96,7 +96,7 @@ router.put('/:id', (req, res) => {
 
 	Glucose.findByIdAndUpdate(glucoseId, req.body, { new: true })
 		.then(glucose => {
-			res.redirect(`/glucoses/${glucose.id}`)
+			res.redirect(`/glucose/my-glucoses`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -121,7 +121,7 @@ router.delete('/:id', (req, res) => {
 	const glucoseId = req.params.id
 	Glucose.findByIdAndRemove(glucoseId)
 		.then(glucose => {
-			res.redirect('/glucoses')
+		res.redirect('/glucose/my-glucoses')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

@@ -9,7 +9,7 @@ const { Schema, model } = mongoose
 
 const glucoseSchema = new Schema(
 	{
-		date: { type: String, required: true },
+		date: { type: Number, required: true },
         value: { type: Number, required: true },
 		target: { type: Number, required: true },
 		notes: { type: String, required: true },
