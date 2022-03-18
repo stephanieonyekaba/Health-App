@@ -24,18 +24,10 @@ router.use((req, res, next) => {
 
 // Routes
 
-// index ALL
-router.get('/', (req, res) => {
-	Med.find({})
-		.then(meds => {
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
-			
-			res.render('meds/index', { meds, username, loggedIn })
-		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
+// index pharmacy
+router.get('/pharmacy', (req, res) => {
+	const { username, userId, loggedIn } = req.session
+	res.render('API/index', { username, loggedIn })
 })
 
 // index that shows only the user's Meds
@@ -75,10 +67,11 @@ router.post('/', (req, res) => {
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
+	const { username, userId, loggedIn } = req.session
 	const medId = req.params.id
 	Med.findById(medId)
 		.then(med => {
-			res.render('meds/edit', { med })
+			res.render('meds/edit', { med, username, loggedIn })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

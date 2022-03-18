@@ -79,15 +79,17 @@ router.post('/', (req, res) => {
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
+	const { username, userId, loggedIn } = req.session
 	const glucoseId = req.params.id
 	Glucose.findById(glucoseId)
 		.then(glucose => {
-			res.render('glucoses/edit', { glucose })
+			res.render('glucoses/edit', { glucose, username, loggedIn })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
+
 
 // update route
 router.put('/:id', (req, res) => {
