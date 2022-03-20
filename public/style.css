@@ -11,7 +11,13 @@ body {
     font-weight: bold;
 }
 
+.dashintro {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 
+}
 
 legend {
   display: flex;
@@ -103,6 +109,7 @@ justify-content: center;
         left: 0;
         overflow: hidden;
         border-right: 1px solid rgba(0, 0, 0, 0.25);
+        font-size: 13px;
       }
     
       .map {
@@ -163,6 +170,7 @@ justify-content: center;
         height: 3px;
         border-left: 0;
         background: rgba(0, 0, 0, 0.1);
+       
       }
       
       ::-webkit-scrollbar-track {
@@ -187,19 +195,21 @@ justify-content: center;
   }
   
   .mapboxgl-popup-content h3 {
-    background: #91c949;
+    background: #4976c9;
     color: #fff;
     margin: 0;
     padding: 10px;
     border-radius: 3px 3px 0 0;
     font-weight: 700;
     margin-top: -15px;
+    font-size: 13px;
   }
   
   .mapboxgl-popup-content h4 {
     margin: 0;
     padding: 10px;
     font-weight: 400;
+    font-size: 15px;
   }
   
   .mapboxgl-popup-content div {
