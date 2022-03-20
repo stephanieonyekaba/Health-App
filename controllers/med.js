@@ -28,6 +28,8 @@ router.use((req, res, next) => {
 router.get('/pharmacy', (req, res) => {
 	const { username, userId, loggedIn } = req.session
 	res.render('API/index', { username, loggedIn })
+
+
 })
 
 // index that shows only the user's Meds
