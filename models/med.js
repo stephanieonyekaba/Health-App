@@ -13,7 +13,7 @@ const medSchema = new Schema(
         dose: { type: Number, required: true },
 		taken: { type: Boolean, required: true },
 		notes: { type: String, required: false },
-		date: { type: Number, required: true },
+		date: { type: String, required: true },
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',

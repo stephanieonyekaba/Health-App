@@ -2,31 +2,30 @@
 {% block content %}
 <div>
     <h2 class="display-6">My Glucose Levels</h2>
-    <a href="/glucose/new" button type="button" class="btn btn-secondary btn-lg btn-block">Add New Reading</button></a>
+
     <!-- BUTTON TO CREATE A NEW GLUCOSE -->
 
     <div class="row">
         
         {% for glucose in glucoses %}
         <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ glucose.name }}</h5>
+            <h5 class="card-header"> {{ glucose.date }}</h5>
             <div class="card-body">
-                <h5 class="card-title">
-                    Taken?: {{ glucose.taken }}
-                </h5>
                 <p class="card-text">
-                    
-                    Notes: {{ glucose.notes }}
+                    Value: {{ glucose.value }} 
                 </p>
+               
                 <p class="card-text">
-                    Dose: {{ glucose.dose }}
+                    A1C < 7%
                 </p>
-                <a href="/glucose/{{ glucose.id }}" class="btn btn-info">
-                    View {{ glucose.name }}
+         
+                <a href="/glucose/{{ glucose.id }}" class="btn btn-outline-primary">
+                    View 
                 </a>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+<a href="/glucose/new" button type="button" class="btn btn-secondary btn-lg btn-block">Add New Entry</button></a>
 {% endblock %}

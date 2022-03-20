@@ -5,10 +5,11 @@
         <fieldset>
             <legend>Add Medication</legend>
             <!-- DATE OF MED SELECTED -->
-            <label class="form-label">Date </label>
+            <label class="form-label">Date: </label>
             <input 
-                type="number"
+                type="STRING"
                 name="date" 
+                placeholder="MM/DD/YYYY"
                 class="form-control"
             >
           
@@ -16,17 +17,18 @@
             <!-- DROP DOWN TO SELECT A MED -->
             <label class="form-label">Select drug </label>
             <input 
-                type="text" 
+                type="string" 
                 name="name" 
                 placeholder="choose a drug"
                 class="form-control"
             >
            
             <!-- DOSAGE OF MED SELECTED -->
-            <label class="form-label">Dosage </label>
+            <label class="form-label">Dosage: </label>
             <input 
                 type="number"
                 name="dose" 
+                placeholder="mg"
                 class="form-control"
             >
 
@@ -47,7 +49,7 @@
                 <label class="form-check-label" for="flexSwitchCheckChecked">PM med</label>
               </div>
         </fieldset>
-        <input type="submit" value="Add Reading" class="btn btn-primary">
+        <input type="submit" value="Add New" class="btn btn-primary">
 
     </form>
 </div>

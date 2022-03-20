@@ -6,11 +6,18 @@
     <form action="/glucose/{{ glucose.id }}?_method=PUT" method="POST">
         <fieldset>
             <legend>Edit Entry</legend>
-            <label class="form-label">Drug: </label>
+            <label class="form-label">Value:</label>
+            <input 
+                type="number" 
+                name="value"
+                value="{{ glucose.value }}"
+                class="form-control"
+            >
+            <label class="form-label">Target: </label>
             <input 
                 type="text" 
-                name="name" 
-                placeholder="{{ glucose.name }}"
+                name="target" 
+                placeholder="{{ glucose.target }}"
                 value="{{ glucose.name }}"
                 class="form-control"
             >
@@ -22,22 +29,7 @@
                 value="{{ glucose.notes }}" 
                 class="form-control"
             >
-            <label class="form-label">Dose:</label>
-            <input 
-                type="number" 
-                name="dose"
-                value="{{ glucose.dose }}"
-                class="form-control"
-            >
-            <label class="form-label">Taken:</label>
-            <input 
-                type="checkbox" 
-                name="taken" 
-                class="form-check-input"
-                {% if glucose.taken %}
-                    checked
-                {% endif %}
-            >
+
         </fieldset>
         <input type="submit" value="Edit Glucose" class="btn btn-success">
     </form>

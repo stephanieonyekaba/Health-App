@@ -9,10 +9,10 @@ const { Schema, model } = mongoose
 
 const glucoseSchema = new Schema(
 	{
-		date: { type: Date, default: Date.now },
+		date: { type: String, required: true  },
         value: { type: Number, required: true },
 		target: { type: Number, required: true },
-		notes: { type: String, required: true },
+		notes: { type: String, required: false },
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',
