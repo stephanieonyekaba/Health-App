@@ -10,7 +10,7 @@ const { Schema, model } = mongoose
 const medSchema = new Schema(
 	{
 		name: { type: String, required: true },
-        dose: { type: Number,  required: true },
+        dose: { type: Number, required: true },
 		taken: { type: Boolean, required: true },
 		notes: { type: String, required: false },
 		date: { type: Number, required: true },

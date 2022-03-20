@@ -26,3 +26,45 @@ body {
     background-color: white;
 }
 
+#map {
+    max-width: 500px;
+    height: 500px;
+}
+
+
+
+    .sidebar {
+        
+        width: 33.3333%;
+        height: 100%;
+        top: o;
+        left: 0;
+        overflow: hidden;
+        border-right: 1px solid rgba(0, 0, 0, 0.25);
+      }
+    
+      .map {
+        position: center;
+      
+        width: 66.6666%;
+        top: 0;
+        bottom: 0;
+      }
+    
+      .heading {
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 10px;
+      }
+
+      .mapContainer{
+          padding: 40px;
+          justify-content: center;
+          display: flex;
+          flex-direction: row;
+      }
+
+  
+  

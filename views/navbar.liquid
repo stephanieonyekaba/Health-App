@@ -13,14 +13,14 @@
                 <a href="/med/pharmacy" class="nav-link text-light">Find a pharmacy</a>
                 <a href="/med/my-meds" class="nav-link text-light">My Meds</a>
                 <a href="/glucose/my-glucoses" class="nav-link text-light">My Glucose</a>
+                <div class="nav-link text-light">Welcome back , {{ username }} </div>
+                <a href="/auth/logout" class="nav-link text-light">Log Out</a>
 
             {% else %}
                 <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
                 <a href="/auth/login" class="nav-link text-light">Sign In</a>
             {% endif %}
         </div>
-        <div class="nav-link text-light">Welcome back , {{ username }} </div>
-        <a href="/auth/logout" class="nav-link text-light">Log Out</a>
     </div>
 </nav>
 {% endblock %}
