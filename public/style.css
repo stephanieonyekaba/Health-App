@@ -4,6 +4,7 @@ html {
 
 body {
     background-image: linear-gradient(rgb(85, 154, 219), rgb(212, 205, 170));
+    font-size: 20px;
 }
 
 .card-text {
@@ -20,11 +21,31 @@ legend {
   color: #bddfcd;
 }
 
-div {
+
+/* maine {
   display: flex;
   justify-content: center;
-  align-items: cen;
+
+} */
+
+
+.container-sm {
+  display: flex;
+  justify-content: center;
 }
+
+.login {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.myHealth {
+  display: flex;
+align-items: center;
+justify-content: center;
+}
+
 
 
 .card {
@@ -37,11 +58,11 @@ div {
     text-align: center;
 }
 
-.homeContainer {
+/* .homeContainer {
     width: 600px;
     height: 600px;
     background-color: white;
-}
+} */
 
 
 
@@ -122,8 +143,9 @@ div {
       .listings .item:last-child { border-bottom: none; }
       
       .listings .item .title {
+        font-size: 15px;
         display: block;
-        color: #00853e;
+        color: #1a10a8;
         font-weight: 700;
       }
       
@@ -158,7 +180,8 @@ div {
   }
   
   .mapboxgl-popup-content {
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+    /* font: 200 9px/18px 'Source Sans Pro', 'Helvetica Neue', sans-serif; */
+    font-size: 10px;
     padding: 0;
     width: 180px;
   }
