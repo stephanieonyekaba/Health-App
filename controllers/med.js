@@ -2,6 +2,7 @@
   
 // Import Dependencies
 const express = require('express')
+const fetch = require('node-fetch')
 //setting our model to a variable so we can use it in other parts of
 const Med = require('../models/med')
 
@@ -26,8 +27,17 @@ router.use((req, res, next) => {
 
 // index pharmacy
 router.get('/pharmacy', (req, res) => {
+	fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/Walgreens.json?bbox=-80.208859763,%2025.855101001,%20-80.164548191,%2025.880818727&access_token=pk.eyJ1Ijoic3RlcGhhbmllb255ZWthYmEiLCJhIjoiY2wwd3VnNHk5MGh0ZTNkbnN6cGlpdnhvOSJ9.9UVni6NE-YHfrQku48eiNw')
+  		.then(response => response.json())
+		.then(data => {
+			console.log("walgreens json", data)
+			const walgreensData = data
+			res.render('API/index', { username, loggedIn , data})
+		})
+		.catch(error => {
+			res.redirect(`/error?error=${error}`)
+		})
 	const { username, userId, loggedIn } = req.session
-	res.render('API/index', { username, loggedIn })
 
 
 })

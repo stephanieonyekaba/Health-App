@@ -18,13 +18,16 @@
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-77.034084, 38.909671],
+        center: [ -80.44311572, 25.25717726],
         zoom: 9,
         scrollZoom: false
     });
 
+   
 
-    const stores = {
+
+
+const stores = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -267,13 +270,19 @@
 
 
 
-stores.features.forEach(function (store, i) {
+// stores.features.forEach(function (store, i) {
+//   store.properties.id = i;
+// });
+
+
+walgreensData.features.forEach(function (store, i) {
   store.properties.id = i;
 });
 
 
 map.on('load', () => {
-    buildLocationList(stores);
+    // buildLocationList(stores);
+    buildLocationList(walgreensData);
   /* Add the data to your map as a layer */
   map.addLayer({
     id: 'locations',
@@ -281,7 +290,8 @@ map.on('load', () => {
     /* Add a GeoJSON source containing place coordinates and information. */
     source: {
       type: 'geojson',
-      data: stores
+      // data: stores
+      data: walgreensData
     }
   });
 });
@@ -289,8 +299,8 @@ map.on('load', () => {
 
 
 
-function buildLocationList(stores) {
-  for (const store of stores.features) {
+function buildLocationList(walgreensData) {
+  for (const store of walgreensData.features) {
 
     
     /* Add a new listing section to the sidebar. */
@@ -320,7 +330,7 @@ function buildLocationList(stores) {
     }
 
     link.addEventListener('click', function () {
-  for (const feature of stores.features) {
+  for (const feature of walgreensData.features) {
     if (this.id === `link-${feature.properties.id}`) {
       flyToStore(feature);
       createPopUp(feature);
