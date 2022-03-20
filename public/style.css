@@ -26,6 +26,30 @@ body {
     background-color: white;
 }
 
+
+
+
+#navbarNa{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+
+
+#sign{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+
+
+
+
+
+/* Map styling css  */
+
 #map {
     max-width: 500px;
     height: 500px;
