@@ -26,13 +26,18 @@ router.use((req, res, next) => {
 // Routes
 
 // index pharmacy
+//when you 
 router.get('/pharmacy', (req, res) => {
 	fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/Walgreens.json?bbox=-80.208859763,%2025.855101001,%20-80.164548191,%2025.880818727&access_token=pk.eyJ1Ijoic3RlcGhhbmllb255ZWthYmEiLCJhIjoiY2wwd3VnNHk5MGh0ZTNkbnN6cGlpdnhvOSJ9.9UVni6NE-YHfrQku48eiNw')
   		.then(response => response.json())
 		.then(data => {
-			console.log("walgreens json", data)
-			const walgreensData = data
-			res.render('API/index', { username, loggedIn , data})
+			console.log("THE json", data.features[0].text )
+			console.log("THE json", data.features[0].place_name )
+			console.log("THE json", data.features[0].center[0] )
+			const features = data.features
+			const address = data.features[0].properties.address
+			console.log(features)
+			res.render('API/index', { username, loggedIn ,data, features})
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)

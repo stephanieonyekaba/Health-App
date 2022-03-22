@@ -225,4 +225,10 @@ justify-content: center;
   }
 
   
-  
+#map {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 100px;
+
+}
