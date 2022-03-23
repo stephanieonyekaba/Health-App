@@ -13,16 +13,12 @@
   </div>
   <!-- {% assign walgreensData = walgreensData%} -->
 <script>
-let features = '{{features}}'
+let features = '{{features | json}}'
+
 console.log(features)
 </script>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoic3RlcGhhbmllb255ZWthYmEiLCJhIjoiY2wwd3VpbjVjMHBoNDNmcDVleHJleDQwdCJ9.w6yzNkwWHFAwqUEMQn-Alg';
-  // walgreensData = Object.entries(walgreensData) 
-
-    // console.log("THE json", data.features[0].text )
-		// 	console.log("THE json", data.features[0].place_name )
-		// 	console.log("THE json", data.features[0].center[0] )
 
 
 
@@ -46,7 +42,7 @@ features.forEach(function (store, i) {
 
 map.on('load', () => {
     // buildLocationList(stores);
-    buildLocationList(walgreensData);
+    buildLocationList(features);
   /* Add the data to your map as a layer */
   map.addLayer({
     id: 'locations',
@@ -136,6 +132,10 @@ function createPopUp(currentFeature) {
 
 
   {% endblock %}
+
+
+
+
 
 
 
