@@ -32,9 +32,11 @@ router.get('/pharmacy', (req, res) => {
   		.then(response => response.json())
 		.then(data => {
 			
-			const features = data.features[0]
-			console.log("THE json", data.features[0].text )
-
+		const features = data.features
+		// for(let i = 0; i < features.length; i++) {
+			
+			// console.log("THE json", features[i].context[0])
+		// }
 			res.render('API/index', { username, loggedIn , features})
 		})
 		.catch(error => {

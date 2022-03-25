@@ -115,12 +115,16 @@ justify-content: center;
       .map {
         position: center;
       
-        width: 66.6666%;
+        width: 50%;
         top: 0;
         bottom: 0;
       }
     
+    
       .heading {
+        display: flex;
+        justify-content: center;
+      
         background: #fff;
         border-bottom: 1px solid #eee;
         height: 60px;
@@ -129,10 +133,11 @@ justify-content: center;
       }
 
       .mapContainer{
-          padding: 40px;
-          justify-content: center;
-          display: flex;
-          flex-direction: row;
+        display: flex;
+       justify-content: center;
+
+       
+ 
       }
 
       .listings {
