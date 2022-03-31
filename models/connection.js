@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 //local database connection => process.env.DATABASE_URL
 //Remote database connection => process.env.MONGODB_URI
 
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(process.env.MONGODB_URI, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
 })
